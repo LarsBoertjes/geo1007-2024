@@ -1,0 +1,24 @@
+body {
+  background: #118272;
+  width: 800px;
+  margin: auto;
+}
+
+ol {
+  border: 1px solid #dc5727;
+  padding: 20px 50px 20px 50px;
+}
+
+.fontstyleA {
+  font-family: Monaco, Monospace;
+  font-size: 20px;
+}
+
+.fontstyleB {
+  font-family: Garamond, Serif;
+}
+
+p {
+  border: 5px solid #dc5727;
+  padding: 10px;
+}
