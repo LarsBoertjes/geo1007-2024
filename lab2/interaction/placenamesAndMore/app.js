@@ -143,8 +143,6 @@ var allFunctions = function () {
 
       for (var i = 0; i < feature.childNodes.length; i++) {
         if (feature.childNodes[i].nodeName != "#text") {
-          const existingRow = this.row;
-          existingRow.remove();
           var row = document.createElement("tr");
           row.style.display = "none";
           row.innerHTML =
