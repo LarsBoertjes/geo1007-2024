@@ -105,7 +105,6 @@ var allFunctions = function () {
     request.open("GET", requestUrl, true);
     request.onload = function () {
       if (this.status >= 200 && this.status < 400) {
-
         const existingTextBox = document.querySelectorAll('textarea')
         existingTextBox.forEach(textarea => textarea.remove());
         var textarea = document.createElement("textarea");
@@ -114,9 +113,7 @@ var allFunctions = function () {
         textarea.style.border = "solid 1px black";
         textarea.textContent = this.responseText;
         document.querySelector("main .forDebug2").append(textarea);
-        document.querySelector("main .forDebug2").append(textarea);
         var xmlData = this.responseXML;
-
         handleXMLResponse(xmlData);
       } else {
         document
