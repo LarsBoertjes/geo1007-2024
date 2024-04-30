@@ -1,24 +1,86 @@
 body {
-  background: #118272;
-  width: 800px;
-  margin: auto;
+    background: linear-gradient(to top, #123524, #1a5049, #136e60);
+    width: 1000px;
+    margin: auto;
+    font-family: "Arial", sans-serif;
+    color: #d97c6e;
 }
 
+h2 {
+    font-size: 35px;
+    font-family: Copperplate, fantasy;
+    text-shadow: 5px 5px 8px rgb(9, 23, 23, 0.3);
+    -webkit-text-stroke: 1px rgb(9, 23, 23, 0.15);
+    color: #6c341e;
+    transition: color 0.5s, font-size 0.5s;
+}
 ol {
-  border: 1px solid #dc5727;
-  padding: 20px 50px 20px 50px;
+    border: 2.5px solid rgb(14, 52, 48, 0.7);
+    background: linear-gradient(to bottom, rgba(250, 115, 101, 0.38), rgba(194, 136, 111, 0.5));
+    padding: 50px 50px;
+    box-shadow: 2px 2px 5px #0e3430;
+}
+
+.container {
+    display: flex;
+    min-height: 500px;
+}
+
+.list-container {
+    flex: 1;
+    margin-right: 20px;
+    height: 200px;
 }
 
 .fontstyleA {
-  font-family: Monaco, Monospace;
-  font-size: 20px;
+    font-family: "Monaco", Monospace;
+    font-size: 20px;
+    color: #0e3430;
 }
 
 .fontstyleB {
-  font-family: Garamond, Serif;
+    font-family: "Garamond", Serif;
+    color: #0e3430;
 }
 
 p {
-  border: 5px solid #dc5727;
-  padding: 10px;
+    background: linear-gradient(to bottom, rgba(250, 115, 101, 0.1), rgba(194, 136, 111, 0.1));
+    border: 8px solid rgba(14, 52, 48, 0.27);
+    padding: 10px;
+}
+
+a:hover {
+    color: #AD5549;
+}
+
+h2:hover {
+    color: #75260b;
+    font-size: 50px;
+}
+
+.mask-container {
+    position: relative;
+    width: 300px;
+    height: 200px;
+    overflow: hidden;
+}
+
+.masked-text {
+    position: absolute;
+    width: 70%;
+    height: 130%;
+    margin: 0;
+    font-size: 100px;
+    font-family: Copperplate, fantasy;
+    text-shadow: 5px 5px 8px rgba(9, 23, 23, 0.3);;
+    color: #fff;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url(https://jazzday.com/media/ordass02.jpg) no-repeat center center;
+    background-size: 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
