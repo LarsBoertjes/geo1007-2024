@@ -71,8 +71,21 @@ var sound = new L.tileLayer.wms(wms_sound_url, {
   pointerCursor: true,
 });
 
+// Define the URL for the parcels map
+var wms_parcels_url = "http://localhost:8080/geoserver/lars/wms?";
+var parcels = new L.tileLayer.wms(wms_parcels_url, {
+  layers: ["parcels"],
+  styles: "",
+  format: "image/png",
+  transparent: true,
+  attribution: '',
+  pointerCursor: true,
+});
+
+
 var overlays = {
   "Road noise [WMS]": sound,
+  "Parcels [WMS]": parcels,
 };
 
 var baseLayers = {
@@ -81,6 +94,7 @@ var baseLayers = {
   "BRT-Achtergrondkaart Pastel [WMTS]": brtPastel,
   "BRT-Achtergrondkaart Water [WMTS]": brtWater,
   "Aerial photo [WMS]": basemap_aerial,
+
 };
 
 L.control.layers(baseLayers, overlays).addTo(map);
