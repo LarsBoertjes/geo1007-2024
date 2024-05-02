@@ -49,7 +49,7 @@ var map = L.map("map-canvas", {
 //    - can be switched on/off by toggle thru L.control.layers (see below in this script)
 var wms_aerial_url = "https://service.pdok.nl/hwh/luchtfotorgb/wms/v1_0?request=GetCapabilities&service=wms";
 var basemap_aerial = new L.tileLayer.wms(wms_aerial_url, {
-  layers: ["luchtfoto_png"],
+  layers: ["2022_ortho25"],
   styles: "",
   format: "image/png",
   transparent: true,
@@ -71,7 +71,20 @@ var sound = new L.tileLayer.wms(wms_sound_url, {
   pointerCursor: true,
 });
 
-// Define the URL for the parcels map 1
+// 4. Bicycle path WMS as overlay map
+var wms_bicycle_url = "https://service.pdok.nl/fietsplatform/regionale-fietsnetwerken/wms/v1_0?request=getcapabilities&service=wms";
+var bicycles = new L.tileLayer.wms(wms_bicycle_url, {
+  layers: ["fietsnetwerken"],
+  styles: "",
+  format: "image/png",
+  transparent: true,
+  attribution:
+    '© <a href="https://nationaalgeoregister.nl/geonetwork/srv/dut/catalog.search#/metadata/37f44a7c-5274-11ea-954f-080027325297"> Stichting Landelijk Fietsplatform</a>',
+  pointerCursor: true,
+});
+
+
+// Define the URL for the parcels map Lars
 var wms_parcels_url = "http://localhost:8080/geoserver/lars/wms?";
 var parcels_lars = new L.tileLayer.wms(wms_parcels_url, {
   layers: ["parcels"],
@@ -82,11 +95,21 @@ var parcels_lars = new L.tileLayer.wms(wms_parcels_url, {
   pointerCursor: true,
 });
 
-// Define the URL for the parcels map 2
-var wms_parcels_url = "http://localhost:8080/geoserver/jessica/wms?";
-var parcels_jessica = new L.tileLayer.wms(wms_parcels_url, {
+// Define the URL for the parcels map Jessica
+var wms_parcels_url2 = "http://localhost:8080/geoserver/jessica/wms?";
+var parcels_jessica = new L.tileLayer.wms(wms_parcels_url2, {
   layers: ["parcels"],
   styles: "",
+  format: "image/png",
+  transparent: true,
+  attribution: '',
+  pointerCursor: true,
+});
+
+// Get top10nl layers Jessica
+var top10nl_jessica = new L.tileLayer.wms(wms_parcels_url2, {
+  layers: ["WATERDEEL_VLAK", "WEGDEEL_VLAK"],
+  styles: ["waterdeel_vlak", "wegdeel_vlak"],
   format: "image/png",
   transparent: true,
   attribution: '',
@@ -97,6 +120,8 @@ var overlays = {
   "Road noise [WMS]": sound,
   "Parcels Lars [WMS]": parcels_lars,
   "Parcels Jessica [WMS]": parcels_jessica,
+  "Regional Bicycle Paths [WMS]": bicycles,
+  'Top10nl Jessica [WMS]': top10nl_jessica,
 };
 
 var baseLayers = {
