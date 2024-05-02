@@ -47,7 +47,7 @@ var map = L.map("map-canvas", {
 
 // 2. aerial photo * not working at this moment (see Assignment)
 //    - can be switched on/off by toggle thru L.control.layers (see below in this script)
-var wms_aerial_url = "https://geodata1.nationaalgeoregister.nl/luchtfoto/wms?";
+var wms_aerial_url = "https://service.pdok.nl/hwh/luchtfotorgb/wms/v1_0?request=GetCapabilities&service=wms";
 var basemap_aerial = new L.tileLayer.wms(wms_aerial_url, {
   layers: ["luchtfoto_png"],
   styles: "",
@@ -71,9 +71,9 @@ var sound = new L.tileLayer.wms(wms_sound_url, {
   pointerCursor: true,
 });
 
-// Define the URL for the parcels map
+// Define the URL for the parcels map 1
 var wms_parcels_url = "http://localhost:8080/geoserver/lars/wms?";
-var parcels = new L.tileLayer.wms(wms_parcels_url, {
+var parcels_lars = new L.tileLayer.wms(wms_parcels_url, {
   layers: ["parcels"],
   styles: "",
   format: "image/png",
@@ -82,10 +82,21 @@ var parcels = new L.tileLayer.wms(wms_parcels_url, {
   pointerCursor: true,
 });
 
+// Define the URL for the parcels map 2
+var wms_parcels_url = "http://localhost:8080/geoserver/jessica/wms?";
+var parcels_jessica = new L.tileLayer.wms(wms_parcels_url, {
+  layers: ["parcels"],
+  styles: "",
+  format: "image/png",
+  transparent: true,
+  attribution: '',
+  pointerCursor: true,
+});
 
 var overlays = {
   "Road noise [WMS]": sound,
-  "Parcels [WMS]": parcels,
+  "Parcels Lars [WMS]": parcels_lars,
+  "Parcels Jessica [WMS]": parcels_jessica,
 };
 
 var baseLayers = {
