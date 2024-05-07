@@ -28,8 +28,4 @@ basemap_pdok.addTo(map);
 let baseLayers = {
   "Topographical map": basemap_pdok
 };
-
 let toc = L.control.layers(baseLayers).addTo(map);
-
-let toc = L.control.layers(baseLayers).addTo(map);
-
